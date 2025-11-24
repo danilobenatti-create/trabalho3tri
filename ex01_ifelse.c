@@ -1,24 +1,30 @@
-ALGORITMO ClassificadorNumero
-INÍCIO
-  VAR num: INTEIRO
+1 #include <stdio.h>
 
-  ESCREVA "Digite um número inteiro:"
-  LEIA num
+int main() {
+    int numero;
 
-  // Verifica o sinal
-  SE num > 0 ENTÃO
-    ESCREVA "O número é POSITIVO."
-  SENÃO SE num < 0 ENTÃO
-    ESCREVA "O número é NEGATIVO."
-  SENÃO
-    ESCREVA "O número é ZERO."
-  FIM_SE
+       printf("Digite um número inteiro: ");
+    if (scanf("%d", &numero) != 1) {
+        printf("Erro na leitura. Por favor, digite um número inteiro válido.\n");
+        return 1; 
+    }
 
-  // Verifica a paridade
-  // Nota: O número 0 é considerado par
-  SE num % 2 == 0 ENTÃO
-    ESCREVA "O número é PAR."
-  SENÃO
-    ESCREVA "O número é ÍMPAR."
-  FIM_SE
-FIM
+       printf("\n--- Classificação de Sinal ---\n");
+    if (numero > 0) {
+        printf("O número %d é **Positivo**.\n", numero);
+    } else if (numero < 0) {
+        printf("O número %d é **Negativo**.\n", numero);
+    } else {
+        printf("O número %d é **Zero**.\n", numero);
+    }
+
+      printf("\n--- Classificação de Paridade ---\n");
+
+       if (numero % 2 == 0) {
+        printf("O número %d é **Par**.\n", numero);
+    } else {
+        printf("O número %d é **Ímpar**.\n", numero);
+    }
+    
+    return 0;
+}
