@@ -1,13 +1,16 @@
-ALGORITMO Tabuada
-INÍCIO
-  VAR N, i: INTEIRO
+ #include <stdio.h>
 
-  ESCREVA "Digite o número para ver a tabuada:"
-  LEIA N
+int main() {
+    int N;   
+    int i;
+        printf("Digite um número inteiro (N) para ver sua tabuada: ");
+    scanf("%d", &N);
 
-  ESCREVA "Tabuada do ", N, ":"
-  
-  PARA i DE 1 ATÉ 10 FAÇA
-    ESCREVA N, " x ", i, " = ", (N * i)
-  FIM_PARA
-FIM
+   
+    printf("\n--- Tabuada do %d ---\n", N);
+
+       for (i = 1; i <= 10; i++) {
+                printf("%d x %d = %d\n", N, i, N * i);
+    }
+
+    return 0;}
