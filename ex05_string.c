@@ -1,21 +1,36 @@
-ALGORITMO ContaVogais
-INÍCIO
-  VAR linha[100]: TEXTO
-  VAR contadorVogais, i: INTEIRO
-  VAR char: CARACTERE
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h> 
 
-  contadorVogais = 0
-  ESCREVA "Digite uma frase:"
-  LEIA linha
+#define MAX_CHARS 101 // 100 caracteres + 1 para o terminador '\0'
 
-  PARA i DE 0 ATÉ (COMPRIMENTO(linha) - 1) FAÇA
-    // Converte o caractere para minúsculo para facilitar a comparação
-    char = MINUSCULO(linha[i]) 
-    
-    SE char == 'a' OU char == 'e' OU char == 'i' OU char == 'o' OU char == 'u' ENTÃO
-      contadorVogais = contadorVogais + 1
-    FIM_SE
-  FIM_PARA
+int main() {
+    char linha[MAX_CHARS]; 
+    int contador_vogais = 0; 
+    int i;
 
-  ESCREVA "Total de vogais: ", contadorVogais
-FIM
+  
+    printf("Digite uma linha (máximo de 100 caracteres):\n");
+      
+    if (fgets(linha, MAX_CHARS, stdin) == NULL) {
+      
+        return 1;
+    }
+
+         for (i = 0; linha[i] != '\0'; i++) {
+             char caractere_minusculo = tolower(linha[i]);
+
+               if (caractere_minusculo == 'a' || 
+            caractere_minusculo == 'e' || 
+            caractere_minusculo == 'i' || 
+            caractere_minusculo == 'o' || 
+            caractere_minusculo == 'u') {
+            
+            contador_vogais++; // Incrementa o contador
+        }
+    }
+
+        printf("\nTotal de vogais encontradas: %d\n", contador_vogais);
+
+    return 0;
+}
